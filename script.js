@@ -114,7 +114,7 @@ function evaluateWordGuess() {
             }
             else if (tile.color == "yellow") {
                 tile.classList.add("yellow-tile");
-                key.classList.add("yellow-tile");
+                tile.classList.contains("green-tile") && key.classList.add("yellow-tile");
             }
             else if (tile.color == "default") {
                 tile.classList.add("default-tile");
