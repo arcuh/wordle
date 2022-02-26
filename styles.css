@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:root {
+    --board-tile-size: 64px;
+    --board-gap-size: 4px;
+
+    --keyboard-key-size: 54px;
+    --keyboard-gap-size: 2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.game-header {
+    color: #e1e1e1;
+    font-size: 1.5rem;
+    margin: 12px;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #242222;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+    gap: var(--board-gap-size);
+    margin-bottom: 18px;
+}
+
+.game-board-row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--board-gap-size);
+}
+
+.game-board-tile {
+    width: var(--board-tile-size);
+    height: var(--board-tile-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #3f3e3e;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 2rem;
+}
+
+.game-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--keyboard-gap-size);
+}
+
+.game-keyboard-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--keyboard-gap-size);
+}
+
+.game-keyboard-key {
+    width: var(--keyboard-key-size);
+    height: var(--keyboard-key-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #3f3e3e;
+    border: 2px solid black;
+    border-radius: 8px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.game-keyboard-key:hover {
+    background-color: #837a7a;
+}
+
+.key-enter, .key-backspace {
+    width: calc(var(--keyboard-key-size) * 3 / 2 + var(--keyboard-gap-size) / 2);
+}
+
+.green-tile {
+    background-color: #69c924;
+    animation: color-enter 1000ms ease;
+}
+
+.yellow-tile {
+    background-color: #bdcd0f;
+    animation: color-enter 1000ms ease;
+}
+
+.default-tile {
+    background-color: #292828;
+    animation: color-enter 1000ms ease;
+}
+
+.win-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.win-container {
+    width: 40%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(123, 116, 116);
+    border-radius: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.unclickable {
+    pointer-events: none;
+}
+
+.hide {
+    display: none;
+}
+
+@keyframes color-enter {
+    0% {
+        transform: scale(0%);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(100%);
+        opacity: 1;
+    }
+}
