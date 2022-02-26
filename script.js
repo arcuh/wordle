@@ -65,7 +65,7 @@ function handleKeyboardClick(e) {
             currentTile.row++;
             board[currentTile.row].word = '';
             currentTile.column = 0;
-        }, 5 * 500);
+        }, 5 * 550);
         return;
     }
     if (keyName == "BACKSPACE") {
@@ -125,7 +125,7 @@ function evaluateWordGuess() {
 
     //Check if win and reset the letterGuessed variable
     setTimeout(() => {
-        if (board[currentTile.row].every((tile) => { return tile.color == "green" })) showWinScreen;
+        if (board[currentTile.row].every((tile) => { return tile.color == "green" })) showWinScreen();
 
         letterGuessed.clear();
         processWord();
@@ -134,6 +134,7 @@ function evaluateWordGuess() {
 
 //Function to show win screen
 function showWinScreen() {
+    console.log("test");
     gameScreen.classList.add("unclickable");
     winScreen.classList.remove("hide");
 }
