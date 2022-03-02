@@ -4,8 +4,8 @@ const winScreen = document.querySelector(".win-screen");
 const keyboard = document.querySelector(".game-keyboard");
 const keyboardKeys = [...document.querySelectorAll(".game-keyboard-key")];
 const boardTiles = [...document.querySelectorAll(".game-board-tile")];
-
 const playAgainBtn = document.querySelector(".play-again-btn");
+const answerWordText = document.querySelector(".answer-word");
 
 //Key click event listener
 keyboard.addEventListener("click", handleKeyboardClick);
@@ -137,6 +137,7 @@ function evaluateWordGuess() {
 
 //Function to show win screen
 function showWinScreen() {
+    answerWordText.innerText = word;
     gameScreen.classList.add("unclickable");
     winScreen.classList.remove("hide");
 }
