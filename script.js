@@ -12,7 +12,7 @@ keyboard.addEventListener("click", handleKeyboardClick);
 playAgainBtn.addEventListener("click", () => { location.reload() });
 
 //Global variables
-const words = ["cinta", "bucin", "gebet", "nikah", "rindu", "pacar", "putus", "peluk", "gebet", "galau", "ayang"]; //Guess words
+const words = []; //Guess words (fill in words you would like)
 let word;
 var currentTile; //Stores data about the current cell/tile (row, column)
 var letterGuessed; //Stores data about the number of letters that haven't been guessed yet
