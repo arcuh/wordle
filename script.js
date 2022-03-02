@@ -5,12 +5,15 @@ const keyboard = document.querySelector(".game-keyboard");
 const keyboardKeys = [...document.querySelectorAll(".game-keyboard-key")];
 const boardTiles = [...document.querySelectorAll(".game-board-tile")];
 
+const playAgainBtn = document.querySelector(".play-again-btn");
+
 //Key click event listener
 keyboard.addEventListener("click", handleKeyboardClick);
+playAgainBtn.addEventListener("click", () => { location.reload() });
 
 //Global variables
-
-const word = "MAKAN"; //Guess word
+const words = ["cinta", "bucin", "gebet", "nikah", "rindu", "pacar", "putus", "peluk", "gebet", "galau", "ayang"]; //Guess words
+let word;
 var currentTile; //Stores data about the current cell/tile (row, column)
 var letterGuessed; //Stores data about the number of letters that haven't been guessed yet
 var board; //Stores board tiles in a 2D style (table)
@@ -34,6 +37,7 @@ function initGame() {
     board[currentTile.row].word = '';
 
     //Initialise and process letters in the word
+    word = words[Math.floor(Math.random() * words.length)].toUpperCase();
     letterGuessed = new Map();
     processWord();
 }
@@ -79,7 +83,6 @@ function handleKeyboardClick(e) {
     if (currentTile.column > 4 || currentTile.row > 5) return;
 
     board[currentTile.row].word += keyName;
-    console.log(board[currentTile.row].word);
     board[currentTile.row][currentTile.column].innerHTML = `<span>${keyName}<span>`;
     currentTile.column++;
 }
@@ -113,8 +116,8 @@ function evaluateWordGuess() {
                 key.classList.add("green-tile");
             }
             else if (tile.color == "yellow") {
+                !key.classList.contains("green-tile") && key.classList.add("yellow-tile");
                 tile.classList.add("yellow-tile");
-                tile.classList.contains("green-tile") && key.classList.add("yellow-tile");
             }
             else if (tile.color == "default") {
                 tile.classList.add("default-tile");
@@ -134,7 +137,6 @@ function evaluateWordGuess() {
 
 //Function to show win screen
 function showWinScreen() {
-    console.log("test");
     gameScreen.classList.add("unclickable");
     winScreen.classList.remove("hide");
 }

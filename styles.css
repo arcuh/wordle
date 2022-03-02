@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 :root {
-    --board-tile-size: 64px;
+    --board-tile-size: 66;
     --board-gap-size: 4px;
 
-    --keyboard-key-size: 54px;
+    --keyboard-key-size: 56px;
     --keyboard-gap-size: 2px;
 }
 
@@ -12,27 +12,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
     font-family: 'Varela Round', sans-serif;
 }
 
 .game-header {
     color: #e1e1e1;
     font-size: 1.5rem;
-    margin: 12px;
 }
 
 .game {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: #2e2d2d;
+    padding: 12px;
 }
 
 .game-board {
@@ -49,14 +44,17 @@ body {
 }
 
 .game-board-tile {
-    width: var(--board-tile-size);
-    height: var(--board-tile-size);
+    width: calc(var(--board-tile-size) / 689 * 100vh);
+    height: calc(var(--board-tile-size) / 689 * 100vh);
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ffffff;
     border: 2px solid #131212;
-    font-size: 2rem;
+}
+
+.game-board-tile>span {
+    font-size: 6vh;
 }
 
 .game-keyboard {
@@ -113,13 +111,15 @@ body {
 }
 
 .win-screen {
-    width: 100%;
-    height: 100%;
     background-color: #00000079;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
     z-index: 1000;
 }
 
@@ -127,12 +127,25 @@ body {
     width: 40%;
     height: 20%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgb(123, 116, 116);
     border-radius: 10px;
     color: white;
     font-size: 2rem;
+}
+
+.play-again-btn {
+    margin-top: 4px;
+    cursor: pointer;
+    padding: 16px;
+    border: 0;
+    transition: all 0.2s ease;
+}
+
+.play-again-btn:hover {
+    background-color: #c6c7c7;
 }
 
 .unclickable {
